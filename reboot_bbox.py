@@ -1,17 +1,16 @@
 import requests
 
 # --- CONFIGURATION ---
-BBOX_IP = "192.168.1.254"
-PASSWORD = "Brezzo@1313"  # Remplace par ton mot de passe d'admin Bbox
+PASSWORD = "Brezzo@1313"  # Ton mot de passe d'admin Bbox
 # ---------------------
 
 def reboot_bbox():
     session = requests.Session()
-    login_url = f"http://192.168.1.254/api/v1/login"
+    login_url = "http://192.168.1.254/api/v1/login"
     
     print("⏳ Connexion à la Bbox...")
-    # On envoie l'authentification ('password' est le mot-clé obligatoire pour l'API Bbox)
-    res = session.post(login_url, data={'Brezzo@1313': PASSWORD})
+    # Authentification auprès de l'API Bbox
+    res = session.post(login_url, data={'password': PASSWORD})
     
     if res.status_code == 200:
         data = res.json()
@@ -29,7 +28,7 @@ def reboot_bbox():
         else:
             print("❌ Erreur : Impossible de récupérer le 'btoken' dans la réponse.")
     else:
-        print("❌ Erreur de connexion : Mot de passe incorrect ou Bbox inaccessible.")
+        print(f"❌ Erreur de connexion (Code HTTP: {res.status_code}) : Mot de passe incorrect ou Bbox inaccessible.")
 
 if __name__ == "__main__":
     reboot_bbox()
