@@ -5,11 +5,13 @@ PASSWORD = "Brezzo@1313"  # Ton mot de passe d'admin Bbox
 # ---------------------
 
 def reboot_bbox():
+    # On force l'utilisation de https et on désactive l'avertissement de certificat SSL local si besoin
     session = requests.Session()
-    login_url = "http://192.168.1.254/api/v1/login"
+    session.verify = False  # Ignore les erreurs de certificat auto-signé de la box
     
-    print("⏳ Connexion à la Bbox...")
-    # Authentification auprès de l'API Bbox
+    login_url = "https://192.168.1.254/api/v1/login"
+    
+    print("⏳ Connexion sécurisée à la Bbox...")
     res = session.post(login_url, data={'password': PASSWORD})
     
     if res.status_code == 200:
@@ -18,7 +20,7 @@ def reboot_bbox():
         
         if btoken:
             print("🔑 Connexion réussie, envoi de la commande de redémarrage...")
-            reboot_url = f"http://192.168.1.254/api/v1/device/reboot?btoken={btoken}"
+            reboot_url = f"https://192.168.1.254/api/v1/device/reboot?btoken={btoken}"
             reboot_res = session.post(reboot_url)
             
             if reboot_res.status_code == 200:
