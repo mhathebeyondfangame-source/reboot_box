@@ -11,7 +11,7 @@ def reboot_bbox():
     
     print("⏳ Connexion à la Bbox...")
     # On envoie l'authentification ('password' est le mot-clé obligatoire pour l'API Bbox)
-    res = session.post(login_url, data={'Brezzo@1313': PASSWORD})
+    res = session.post(login_url, data={'5dRSCDr29dV2JfCtxT': PASSWORD})
     
     if res.status_code == 200:
         data = res.json()
