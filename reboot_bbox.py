@@ -1,7 +1,7 @@
 import requests
 
 # --- CONFIGURATION ---
-BBOX_IP = "mabbox.bytel.fr"
+BBOX_IP = "192.168.1.254"
 PASSWORD = "Brezzo@1313"  # Remplace par ton mot de passe d'admin Bbox
 # ---------------------
 
