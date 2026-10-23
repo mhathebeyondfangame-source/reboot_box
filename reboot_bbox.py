@@ -5,7 +5,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # --- CONFIGURATION ---
-PASSWORD = "Brezzo@1313"  # Ton mot de passe d'admin Bbox
+PASSWORD = ""  # Ton mot de passe d'admin Bbox
 # ---------------------
 
 def reboot_bbox():
