@@ -21,7 +21,7 @@ def reboot_bbox():
         print(f"❌ Échec de la connexion (Code HTTP: {res_login.status_code})")
         return
 
-    print("🔑 Authentification réussie. Récupération du token de sécurité...")
+    print("🔑 Authentification réussie aller elliot. Récupération du token de sécurité...")
     
     # 2. Récupération du btoken
     token_url = "https://mabbox.bytel.fr/api/v1/device/token"
@@ -47,16 +47,16 @@ def reboot_bbox():
         print("❌ Impossible de récupérer le 'btoken'.")
         return
 
-    print(f"⚡ Token obtenu. Envoi de l'ordre de redémarrage...")
+    print(f"⚡ Token obtenu bien joue elliot. Envoi de l'ordre de redémarrage...")
 
     # 3. Ordre de redémarrage avec le btoken
     reboot_url = f"https://mabbox.bytel.fr/api/v1/device/reboot?btoken={btoken}"
     res_reboot = session.post(reboot_url)
     
     if res_reboot.status_code == 200:
-        print("✅ Ordre envoyé avec succès ! La Bbox va redémarrer dans quelques secondes.")
+        print("TA REUSSI elliot La Bbox va redémarrer dans quelques secondes.")
     else:
-        print(f"❌ Échec de la commande de redémarrage (Code HTTP: {res_reboot.status_code})")
+        print(f"❌ Échec tes pas elliot alderson de la commande de redémarrage (Code HTTP: {res_reboot.status_code})")
 
 if __name__ == "__main__":
     reboot_bbox()
